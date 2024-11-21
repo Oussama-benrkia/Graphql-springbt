@@ -83,4 +83,13 @@ public class CompteControllerGraphQL {
                 "average", average
         );
     }
+    @MutationMapping
+    public Boolean deleteCompte(@Argument Long id) {
+        if (compteRepository.existsById(id)) {
+            compteRepository.deleteById(id);
+            return true;
+        } else {
+            throw new RuntimeException(String.format("Compte %s not found for deletion", id));
+        }
+    }
 }

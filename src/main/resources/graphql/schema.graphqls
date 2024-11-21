@@ -28,6 +28,7 @@ type Compte {
 
 type Mutation {
     saveCompte(compte:CompteRequest):Compte
+    deleteCompte(id: ID): Boolean
 }
 
 input CompteRequest {
